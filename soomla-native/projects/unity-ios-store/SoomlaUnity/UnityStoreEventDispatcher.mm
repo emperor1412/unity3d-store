@@ -236,10 +236,14 @@ extern "C"{
         UnitySendMessage("StoreEvents", "onMarketItemsRefreshFailed", [jsonStr UTF8String]);
     }
     else if ([notification.name isEqualToString:EVENT_UNEXPECTED_ERROR_IN_STORE]) {
-        UnitySendMessage("StoreEvents", "onUnexpectedErrorInStore", "");
+        NSNumber *errorCode = [notification.userInfo objectForKey:DICT_ELEMENT_ERROR_CODE];
+        UnitySendMessage("StoreEvents", "onUnexpectedErrorInStore", (errorCode != nil) ? [[errorCode stringValue] UTF8String] : "");
     }
     else if ([notification.name isEqualToString:EVENT_SOOMLASTORE_INIT]) {
         UnitySendMessage("StoreEvents", "onSoomlaStoreInitialized", "");
+    }
+    else if ([notification.name isEqualToString:EVENT_MARKET_PURCHASE_VERIF]) {
+        UnitySendMessage("StoreEvents", "onMarketPurchaseVerified", "");
     }
 }
 

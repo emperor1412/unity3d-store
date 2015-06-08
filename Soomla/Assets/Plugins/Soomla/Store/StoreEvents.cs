@@ -522,8 +522,14 @@ namespace Soomla.Store {
 		}
 #endif
 
+		public void onMarketPurchaseVerified(string message) {
+			SoomlaUtils.LogDebug(TAG, "SOOMLA/UNITY onMarketPurchaseVerified");
+			StoreEvents.OnMarketPurchaseVerified ();
+		}
 
 		public delegate void Action();
+
+		public static Action OnMarketPurchaseVerified = delegate {};
 
 		public static Action OnBillingNotSupported = delegate {};
 
