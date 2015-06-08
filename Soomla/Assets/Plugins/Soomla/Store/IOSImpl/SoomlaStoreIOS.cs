@@ -40,7 +40,7 @@ namespace Soomla.Store {
 		[DllImport ("__Internal")]
 		private static extern void soomlaStore_TransactionsAlreadyRestored(out bool outResult);
 		[DllImport ("__Internal")]
-		private static extern void soomlaStore_SetSSV(bool ssv, string verifyUrl);
+		public static extern void soomlaStore_SetSSV(bool ssv, string verifyUrl);
 
 
 		protected override void _loadBillingService() {
