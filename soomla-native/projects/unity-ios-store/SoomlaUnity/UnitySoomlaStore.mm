@@ -10,6 +10,14 @@
 #import "SoomlaUtils.h"
 
 extern "C"{
+
+    void soomlaStore_SetServerAuthorizationToken(const char* serverToken) {
+        if(SERVER_AUTHORIZATION_TOKEN) {
+            [SERVER_AUTHORIZATION_TOKEN release];
+        }
+        
+        SERVER_AUTHORIZATION_TOKEN = [[NSString stringWithUTF8String:serverToken] retain];
+    }
     
     void soomlaStore_SetSSV(bool ssv, const char* verifyUrl) {
 		VERIFY_PURCHASES = ssv;
