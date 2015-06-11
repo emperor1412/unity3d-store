@@ -27,7 +27,7 @@ namespace Soomla.Store
 	{
 
 		static SoomlaStore _instance = null;
-		static SoomlaStore instance {
+		public static SoomlaStore instance {
 			get {
 				if(_instance == null) {
 					#if UNITY_ANDROID && !UNITY_EDITOR
