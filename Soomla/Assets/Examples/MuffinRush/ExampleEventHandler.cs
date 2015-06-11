@@ -14,6 +14,7 @@
 
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Soomla.Store.Example {
 
@@ -46,10 +47,16 @@ namespace Soomla.Store.Example {
 			StoreEvents.OnRestoreTransactionsStarted += onRestoreTransactionsStarted;
 			StoreEvents.OnRestoreTransactionsFinished += onRestoreTransactionsFinished;
 			StoreEvents.OnSoomlaStoreInitialized += onSoomlaStoreInitialized;
+			StoreEvents.OnMarketPurchaseVerified += onMarketPurchaseVerified;
 #if UNITY_ANDROID && !UNITY_EDITOR
 			StoreEvents.OnIabServiceStarted += onIabServiceStarted;
 			StoreEvents.OnIabServiceStopped += onIabServiceStopped;
 #endif
+		}
+
+
+		public void onMarketPurchaseVerified() {
+			Debug.Log ("onMarketPurchaseVerified");
 		}
 
 		/// <summary>

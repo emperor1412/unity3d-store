@@ -17,6 +17,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using Soomla;
+using Soomla.Store;
 
 namespace Soomla.Store.Example {
 
@@ -24,6 +25,9 @@ namespace Soomla.Store.Example {
 	/// This class contains functions that initialize the game and that display the different screens of the game.
 	/// </summary>
 	public class ExampleWindow : MonoBehaviour {
+
+		public string serverToken = "0ElSRDcBEGQQSd0YBkeWuCLUB4yv0ecEjHwaHhcbnuvclvQyeTnpHjtQ4jHijW2S";
+		public string serverVerificationURL = "http://dev.api.socialvoucher.net/api/Orders/verifyPurchaseApple";
 
 		private static ExampleWindow instance = null;
 
@@ -80,6 +84,7 @@ namespace Soomla.Store.Example {
 		private Dictionary<string, bool> itemsAffordability;
 
 
+
 		/// <summary>
 		/// Starts this instance.
 		/// Use this for initialization.
@@ -103,6 +108,12 @@ namespace Soomla.Store.Example {
 			tTitle = (Font)Resources.Load("SoomlaStore/Title" + fontSuffix);
 
 			SoomlaStore.Initialize(new MuffinRushAssets());
+#if UNITY_EDITOR
+#elif UNITY_IOS 
+			SoomlaStoreIOS.soomlaStore_SetSSV(StoreSettings.IosSSV, serverVerificationURL);
+			SoomlaStoreIOS.soomlaStore_SetServerAuthorizationToken(serverToken);
+#elif UNITY_ANDROID
+#endif
 		}
 
 		public void onSoomlaStoreInitialized() {

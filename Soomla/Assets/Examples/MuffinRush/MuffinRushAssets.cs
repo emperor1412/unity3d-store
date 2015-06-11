@@ -42,28 +42,31 @@ namespace Soomla.Store.Example {
 		/// see parent.
 		/// </summary>
 	    public VirtualGood[] GetGoods() {
-			return new VirtualGood[] {MUFFINCAKE_GOOD, PAVLOVA_GOOD,CHOCLATECAKE_GOOD, CREAMCUP_GOOD, NO_ADS_LTVG};
+//			return new VirtualGood[] {MUFFINCAKE_GOOD, PAVLOVA_GOOD,CHOCLATECAKE_GOOD, CREAMCUP_GOOD, NO_ADS_LTVG};
+			return new VirtualGood[] {};
 		}
 
 		/// <summary>
 		/// see parent.
 		/// </summary>
 	    public VirtualCurrencyPack[] GetCurrencyPacks() {
-			return new VirtualCurrencyPack[] {TENMUFF_PACK, FIFTYMUFF_PACK, FOURHUNDMUFF_PACK, THOUSANDMUFF_PACK};
+//			return new VirtualCurrencyPack[] {TENMUFF_PACK, FIFTYMUFF_PACK, FOURHUNDMUFF_PACK, THOUSANDMUFF_PACK};
+			return new VirtualCurrencyPack[] {TENMUFF_PACK};
 		}
 
 		/// <summary>
 		/// see parent.
 		/// </summary>
 	    public VirtualCategory[] GetCategories() {
-			return new VirtualCategory[]{GENERAL_CATEGORY};
+//			return new VirtualCategory[]{GENERAL_CATEGORY};
+			return new VirtualCategory[] {};
 		}
 
 	    /** Static Final Members **/
 
 	    public const string MUFFIN_CURRENCY_ITEM_ID      = "currency_muffin";
 
-	    public const string TENMUFF_PACK_PRODUCT_ID      = "android.test.refunded";
+		public const string TENMUFF_PACK_PRODUCT_ID      = "com.dirox.test.p1";
 
 	    public const string FIFTYMUFF_PACK_PRODUCT_ID    = "android.test.canceled";
 
